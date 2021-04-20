@@ -4,6 +4,7 @@ Olivier Lacan - https://gist.github.com/olivierlacan/3237765
 # Aliases
 
 ```
+git config --global alias.up "pull --rebase --autostash"
 git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"
@@ -12,12 +13,13 @@ git config --global alias.mylog "log --pretty=format:'%h %s [%an]' --graph"
 To check that they've been added correctly, first run `git config --list`. You should see something like this in the midst of all your other configuration:
 
 ```
+alias.up=pull --rebase --autostash
 alias.hist=log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
 alias.lol=log --graph --decorate --pretty=oneline --abbrev-commit --all
 alias.mylog=log --pretty=format:'%h %s [%an]' --graph
 ```
 
-Then the output of each should look like this.
+Then the output of each of the Logs additions should look like the following:
 
 ## Hist
 
