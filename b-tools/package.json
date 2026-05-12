@@ -1,0 +1,30 @@
+{
+  "name": "b-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bin/cli.js",
+    "lint": "eslint src/ bin/",
+    "format": "prettier --write src/ bin/",
+    "test": "node --test tests/"
+  },
+  "bin": {
+    "b-tools": "./bin/cli.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@inquirer/prompts": "^8.4.3",
+    "commander": "^14.0.3",
+    "execa": "^9.6.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "prettier": "^3.8.3"
+  }
+}
