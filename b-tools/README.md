@@ -1,4 +1,4 @@
-# brendan-tools
+# b-tools
 
 A personal Node.js CLI tool for git branch automation. Built as a learning project to practice ES Modules, `execa`, and promise-based async/await patterns.
 
@@ -37,13 +37,13 @@ node bin/cli.js git-clean
 
 **Run via global install:**
 ```bash
-brendan-tools git-sync
-brendan-tools git-clean
+b-tools git-sync
+b-tools git-clean
 ```
 
 **See all available commands:**
 ```bash
-brendan-tools --help
+b-tools --help
 ```
 
 **Lint the codebase:**

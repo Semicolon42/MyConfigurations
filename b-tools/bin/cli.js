@@ -4,10 +4,9 @@ import { program } from 'commander';
 import { run, runSafe } from '../src/utils/shell.js';
 import { gitSync } from '../src/commands/gitSync.js'
 import { gitClean } from '../src/commands/gitClean.js'
-import { test } from '../src/commands/test.js'
 
 program
-    .name('brendan-tools')
+    .name('b-tools')
     .description('Personal automation commands')
     .version('1.0.0');
 

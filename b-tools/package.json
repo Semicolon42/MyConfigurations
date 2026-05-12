@@ -1,5 +1,5 @@
 {
-  "name": "brendan-tools",
+  "name": "b-tools",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -10,7 +10,7 @@
     "test": "node --test tests/"
   },
   "bin": {
-    "brendan-tools": "./bin/cli.js"
+    "b-tools": "./bin/cli.js"
   },
   "keywords": [],
   "author": "",
