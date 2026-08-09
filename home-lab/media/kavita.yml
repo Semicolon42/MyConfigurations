@@ -1,0 +1,21 @@
+services:
+
+  kavita:
+    image: jvmilazz0/kavita:latest
+    container_name: kavita
+    environment:
+      - TZ=America/Los_Angeles
+    ports:
+      - "5000:5000"
+    volumes:
+      - ___REPLACE_ME_KAVITA_CONFIG_PATH___:/kavita/config
+      - ___REPLACE_ME_KAVITA_MANGA_PATH___:/manga
+      - ___REPLACE_ME_KAVITA_COMICS_PATH___:/comics
+      - ___REPLACE_ME_KAVITA_BOOKS_PATH___:/books
+    networks:
+      - edge
+    restart: unless-stopped
+
+networks:
+  edge:
+    external: true

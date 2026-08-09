@@ -1,0 +1,21 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    networks:
+      - edge
+    volumes:
+      - ___REPLACE_ME_CADDYFILE_PATH___:/etc/caddy/Caddyfile:ro
+      - ___REPLACE_ME_CADDY_DATA_PATH___:/data
+      - ___REPLACE_ME_CADDY_CONFIG_PATH___:/config
+    # No `ports:` published to the host on purpose — the only thing that
+    # ever needs to reach Caddy is `cloudflared`, over the `edge` network.
+    # If you also want LAN clients to hit these hostnames directly without
+    # going through Cloudflare, the NAS already owns host ports 80/443
+    # (DSM), so publish something like "8080:80" here instead and point
+    # your LAN DNS (Pi-hole/router) at <nas-ip>:8080 for those hostnames.
+
+networks:
+  edge:
+    external: true

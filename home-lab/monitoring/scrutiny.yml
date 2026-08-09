@@ -1,0 +1,20 @@
+services:
+  scrutiny:
+    image: ghcr.io/analogj/scrutiny:master-omnibus
+    container_name: scrutiny
+    cap_add:
+      - SYS_RAWIO
+      - SYS_ADMIN
+    ports:
+      - "8082:8080"
+      - "8086:8086"
+    volumes:
+      - ___REPLACE_ME_SCRUTINY_CONFIG_PATH___:/opt/scrutiny/config
+      - ___REPLACE_ME_SCRUTINY_INFLUXDB_PATH___:/opt/scrutiny/influxdb
+      - /run/udev:/run/udev:ro
+    devices:
+      - "___REPLACE_ME_DISK_DEVICE_1___:___REPLACE_ME_DISK_DEVICE_1___"
+      - "___REPLACE_ME_DISK_DEVICE_2___:___REPLACE_ME_DISK_DEVICE_2___"
+    restart: unless-stopped
+    # Needs raw disk access (see `devices:` — adjust to your actual drives).
+    # LAN-only, same reasoning as netdata.

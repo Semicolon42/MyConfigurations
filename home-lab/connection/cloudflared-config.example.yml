@@ -1,0 +1,18 @@
+# Reference only — this is the shape of the file that connection/cloudflare.yml
+# mounts at ___REPLACE_ME_CLOUDFLARED_CONFIG_PATH___ (not tracked here since
+# it holds your tunnel ID). Every hostname now routes to the same place —
+# Caddy — so this file stops changing when you add apps; you only ever
+# touch connection/Caddyfile after this.
+
+tunnel: <<REPLACE_WITH_REAL_TUNNEL_ID>>
+credentials-file: /cloudflared/credentials.json
+
+ingress:
+  - hostname: "*.example.com"
+    service: http://caddy:80
+  - service: http_status:404
+
+# One-time setup outside this repo:
+#   1. cloudflared tunnel route dns <<REPLACE_WITH_REAL_TUNNEL_ID>> "*.example.com"
+#      (wildcard CNAME in the Cloudflare dashboard, pointed at the tunnel)
+#   2. Nothing else — new subdomains just need a block in Caddyfile.

@@ -1,0 +1,38 @@
+# Cloudflare terminates public TLS at its own edge and reaches this
+# container only over the private `edge` docker network via the tunnel,
+# so there's no cert for Caddy to obtain and no port 80/443 exposed to the
+# internet. Auto-HTTPS would otherwise fail trying (and fail loudly), so
+# it's switched off globally and every site is addressed as plain http://.
+{
+    auto_https off
+}
+
+http://jellyfin.example.com {
+    reverse_proxy jellyfin:8096
+}
+
+http://books.example.com {
+    reverse_proxy audiobookshelf:80
+}
+
+http://music.example.com {
+    reverse_proxy navidrome:4533
+}
+
+http://manga.example.com {
+    reverse_proxy kavita:5000
+}
+
+http://links.example.com {
+    reverse_proxy linkwarden:3000
+}
+
+http://pdf.example.com {
+    reverse_proxy stirling-pdf:8080
+}
+
+http://docs.example.com {
+    reverse_proxy paperless-ngx:8000
+}
+
+# Adding a new app to `edge` later = add a block here, nothing else to touch.

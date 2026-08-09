@@ -1,0 +1,27 @@
+networks:
+  edge:
+    external: true
+    # Create once, before anything else: `docker network create edge`
+    # Every stack that needs to be reachable through the tunnel joins this
+    # same network by name. Backend/db containers never do.
+
+services:
+
+  # ----------------------------------------------------------
+  #  CLOUDFLARE TUNNEL
+  #  Uses config file instead of command-line token
+  #  More reliable on NAS devices
+  # ----------------------------------------------------------
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    networks:
+      - edge
+    volumes:
+      - ___REPLACE_ME_CLOUDFLARED_CREDENTIALS_PATH___:/cloudflared/credentials.json
+      - ___REPLACE_ME_CLOUDFLARED_CONFIG_PATH___:/cloudflared/config.yml
+    # command: tunnel --config /cloudflared/config.yml run
+    command: tunnel --no-autoupdate run
+    environment:
+    - TUNNEL_TOKEN=<<REPLACE_WITH_REAL_TUNNEL_TOKEN>>

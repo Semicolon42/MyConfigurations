@@ -1,0 +1,18 @@
+services:
+  plex:
+    image: plexinc/pms-docker:latest
+    container_name: plex
+    environment:
+      - TZ=America/Los_Angeles
+      - PUID=1000
+      - PGID=1000
+      - PLEX_CLAIM=<<REPLACE_WITH_REAL_PLEX_CLAIM_TOKEN>>
+    ports:
+      - "32400:32400"
+    volumes:
+      - ___REPLACE_ME_PLEX_CONFIG_PATH___:/config
+      - ___REPLACE_ME_MOVIES_LIBRARY_PATH___:/media/movies:ro
+      - ___REPLACE_ME_TV_LIBRARY_PATH___:/media/tv:ro
+    restart: unless-stopped
+    # Intentionally NOT on the `edge` network and no other host is punched
+    # through Cloudflare for this one — LAN/PS5 only, per the filename.

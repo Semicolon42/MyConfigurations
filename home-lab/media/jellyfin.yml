@@ -1,0 +1,22 @@
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - TZ=America/Los_Angeles
+      - PUID=1000
+      - PGID=1000
+    ports:
+      - "8096:8096"
+    volumes:
+      - ___REPLACE_ME_JELLYFIN_CONFIG_PATH___:/config
+      - ___REPLACE_ME_JELLYFIN_CACHE_PATH___:/cache
+      - ___REPLACE_ME_MOVIES_LIBRARY_PATH___:/media/movies:ro
+      - ___REPLACE_ME_TV_LIBRARY_PATH___:/media/tv:ro
+    networks:
+      - edge
+    restart: unless-stopped
+
+networks:
+  edge:
+    external: true
