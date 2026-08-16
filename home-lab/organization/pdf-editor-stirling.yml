@@ -1,18 +1,16 @@
-version: '3.8'
+name: stirling-pdf
 
 services:
   stirling-pdf:
     image: ghcr.io/stirling-tools/stirling-pdf:latest
     container_name: stirling-pdf
     ports:
-      - "25002:8080"
+      - "40005:8080"
     volumes:
       - ./trainingData:/usr/share/tesseract-ocr-4.00/tessdata
       - ./extraConfigs:/configs
-    environment:
-      - DOCKER_ENABLE_SECURITY=false
-      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=true
-      - LANGS=en_GB
+    env_file:
+      - pdf-editor-stirling.env
     networks:
       - edge
     restart: unless-stopped

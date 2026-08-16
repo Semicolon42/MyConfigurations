@@ -1,3 +1,5 @@
+name: cloudflare
+
 networks:
   edge:
     external: true
@@ -23,5 +25,5 @@ services:
       - ___REPLACE_ME_CLOUDFLARED_CONFIG_PATH___:/cloudflared/config.yml
     # command: tunnel --config /cloudflared/config.yml run
     command: tunnel --no-autoupdate run
-    environment:
-    - TUNNEL_TOKEN=<<REPLACE_WITH_REAL_TUNNEL_TOKEN>>
+    env_file:
+      - cloudflare.env

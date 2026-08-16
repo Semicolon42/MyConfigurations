@@ -1,12 +1,13 @@
+name: glances
+
 services:
   glances:
     image: nicolargo/glances:latest
     container_name: glances
     pid: host
     network_mode: host
-    environment:
-      - TZ=America/Los_Angeles
-      - GLANCES_OPT=-w
+    env_file:
+      - glances.env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped

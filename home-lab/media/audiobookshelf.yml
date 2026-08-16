@@ -1,10 +1,12 @@
+name: audiobookshelf
+
 services:
   audiobookshelf:
     image: ghcr.io/advplyr/audiobookshelf:latest
-    # ABS runs on port 13378 by default. If you want to change
-    # the port, only change the external port
+    # ABS listens on 80 inside the container by default; only the host
+    # (left) side is remapped here to fit this repo's port scheme.
     ports:
-      - 13378:80
+      - 30002:80
     volumes:
       # These volumes are needed to keep your library persistent
       # and allow media to be accessed by the ABS server.
@@ -16,9 +18,8 @@ services:
       # or add additional mounts for additional libraries.
       - ___REPLACE_ME_AUDIOBOOKSHELF_AUDIOBOOKS_PATH___:/audiobooks
       - ___REPLACE_ME_AUDIOBOOKSHELF_PODCASTS_PATH___:/podcasts
-    environment:
-      - TZ=America/Los_Angeles
-      # Add other environment variables here
+    env_file:
+      - audiobookshelf.env
     restart: unless-stopped
     # Audiobookshelf does not use PUID or GUID environment variables.
     # To run as a different user, use the following directive.

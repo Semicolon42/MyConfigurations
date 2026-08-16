@@ -1,12 +1,11 @@
+name: plex
+
 services:
   plex:
     image: plexinc/pms-docker:latest
     container_name: plex
-    environment:
-      - TZ=America/Los_Angeles
-      - PUID=1000
-      - PGID=1000
-      - PLEX_CLAIM=<<REPLACE_WITH_REAL_PLEX_CLAIM_TOKEN>>
+    env_file:
+      - plex-local-only.env
     ports:
       - "32400:32400"
     volumes:

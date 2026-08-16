@@ -1,11 +1,11 @@
+name: beets
+
 services:
   beets:
     image: lscr.io/linuxserver/beets:latest
     container_name: beets
-    environment:
-      - TZ=America/Los_Angeles
-      - PUID=1000
-      - PGID=1000
+    env_file:
+      - beets.env
     volumes:
       - ___REPLACE_ME_BEETS_CONFIG_PATH___:/config
       - ___REPLACE_ME_MUSIC_DOWNLOADS_PATH___:/downloads

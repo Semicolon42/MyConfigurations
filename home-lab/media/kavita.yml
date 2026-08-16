@@ -1,12 +1,14 @@
+name: kavita
+
 services:
 
   kavita:
     image: jvmilazz0/kavita:latest
     container_name: kavita
-    environment:
-      - TZ=America/Los_Angeles
+    env_file:
+      - kavita.env
     ports:
-      - "5000:5000"
+      - "30004:5000"
     volumes:
       - ___REPLACE_ME_KAVITA_CONFIG_PATH___:/kavita/config
       - ___REPLACE_ME_KAVITA_MANGA_PATH___:/manga

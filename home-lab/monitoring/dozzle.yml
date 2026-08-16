@@ -1,0 +1,15 @@
+name: dozzle
+
+services:
+  # optional but helpful log viewer
+  dozzle:
+    image: amir20/dozzle:latest
+    restart: unless-stopped
+    container_name: dozzle
+    env_file:
+      - dozzle.env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - __DOZZLE_DATA__:/data
+    ports:
+      - "20001:8888"

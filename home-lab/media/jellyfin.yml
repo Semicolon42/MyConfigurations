@@ -1,13 +1,13 @@
+name: jellyfin
+
 services:
   jellyfin:
     image: jellyfin/jellyfin:latest
     container_name: jellyfin
-    environment:
-      - TZ=America/Los_Angeles
-      - PUID=1000
-      - PGID=1000
+    env_file:
+      - jellyfin.env
     ports:
-      - "8096:8096"
+      - "30001:8096"
     volumes:
       - ___REPLACE_ME_JELLYFIN_CONFIG_PATH___:/config
       - ___REPLACE_ME_JELLYFIN_CACHE_PATH___:/cache

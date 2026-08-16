@@ -1,3 +1,5 @@
+name: fail2ban
+
 services:
   fail2ban:
     image: crazymax/fail2ban:latest
@@ -6,10 +8,8 @@ services:
     cap_add:
       - NET_ADMIN
       - NET_RAW
-    environment:
-      - TZ=America/Los_Angeles
-      - F2B_LOG_TARGET=STDOUT
-      - F2B_DB_PURGE_AGE=7d
+    env_file:
+      - fail2ban.env
     volumes:
       - ___REPLACE_ME_FAIL2BAN_DATA_PATH___:/data
       - ___REPLACE_ME_LOG_SOURCE_PATH___:/var/log/remote:ro # point at whatever logs you want it watching

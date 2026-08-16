@@ -1,0 +1,46 @@
+name: ai
+
+services:
+    # open-webui service for LLM interaction
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:latest
+    container_name: open-webui
+    restart: unless-stopped
+    env_file:
+      - ollama.env
+    depends_on:
+      - ollama
+    ports:
+      - "10001:8080"
+    volumes:
+      - __OPEN_WEBUI__/data:/app/backend/data
+
+  # ollama service for local LLMs
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    env_file:
+      - ollama.env
+    volumes:
+      - __OPEN_OLLAMA__/data/:/root/.ollama
+      - __OPEN_OLLAMA__/models:/ollama-models
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    networks:
+      - default
+      - internal-llm
+
+networks:
+  internal-llm:
+    external: true
+    # Shared network for anything that needs to reach Ollama across stacks
+    # without merging compose projects. Create once:
+    # `docker network create internal-llm`. Never exposed through `edge` —
+    # LAN/container-to-container only. open-webui doesn't need this; it
+    # talks to ollama over this stack's own default network.

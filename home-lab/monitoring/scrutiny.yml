@@ -1,3 +1,5 @@
+name: scrutiny
+
 services:
   scrutiny:
     image: ghcr.io/analogj/scrutiny:master-omnibus
@@ -6,8 +8,8 @@ services:
       - SYS_RAWIO
       - SYS_ADMIN
     ports:
-      - "8082:8080"
-      - "8086:8086"
+      - "20003:8080"
+      - "20004:8086"
     volumes:
       - ___REPLACE_ME_SCRUTINY_CONFIG_PATH___:/opt/scrutiny/config
       - ___REPLACE_ME_SCRUTINY_INFLUXDB_PATH___:/opt/scrutiny/influxdb

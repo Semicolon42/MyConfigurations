@@ -1,8 +1,10 @@
+name: linkwarden
+
 services:
   postgres:
     image: postgres:16-alpine
-    environment:
-      - POSTGRES_PASSWORD=<<REPLACE_WITH_REAL_POSTGRES_PASSWORD>>
+    env_file:
+      - link-warden.env
     restart: always
     volumes:
       - ___REPLACE_ME_LINKWARDEN_PGDATA_PATH___:/var/lib/postgresql/data
@@ -12,16 +14,13 @@ services:
     volumes:
       - ___REPLACE_ME_LINKWARDEN_MEILI_DATA_PATH___:/meili_data
   linkwarden:
-    environment:
-      - NEXTAUTH_URL=http://localhost:3000/api/v1/auth
-      - NEXTAUTH_SECRET=<<REPLACE_WITH_REAL_NEXTAUTH_SECRET>>
-      # Must match POSTGRES_PASSWORD above exactly.
-      - DATABASE_URL=postgresql://postgres:<<REPLACE_WITH_REAL_POSTGRES_PASSWORD>>@postgres:5432/postgres
+    env_file:
+      - link-warden.env
     restart: always
     # build: . # uncomment to build from source
     image: ghcr.io/linkwarden/linkwarden:latest # comment to build from source
     ports:
-      - 3000:3000
+      - 40001:3000
     volumes:
       - ___REPLACE_ME_LINKWARDEN_DATA_PATH___:/data/data
     depends_on:

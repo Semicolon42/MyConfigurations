@@ -7,32 +7,45 @@
     auto_https off
 }
 
-http://jellyfin.example.com {
+http://jf.semicolon42.com {
     reverse_proxy jellyfin:8096
 }
 
-http://books.example.com {
+http://jellyfin.semicolon42.com {
+    reverse_proxy jellyfin:8096
+}
+
+http://books.semicolon42.com {
     reverse_proxy audiobookshelf:80
 }
 
-http://music.example.com {
+http://music.semicolon42.com {
     reverse_proxy navidrome:4533
 }
 
-http://manga.example.com {
+http://manga.semicolon42.com {
     reverse_proxy kavita:5000
 }
 
-http://links.example.com {
+http://links.semicolon42.com {
     reverse_proxy linkwarden:3000
 }
 
-http://pdf.example.com {
+http://lw.semicolon42.com {
+    reverse_proxy linkwarden:3000
+}
+
+
+http://pdf.semicolon42.com {
     reverse_proxy stirling-pdf:8080
 }
 
-http://docs.example.com {
+http://docs.semicolon42.com {
     reverse_proxy paperless-ngx:8000
+}
+
+http://pics.semicolon42.com {
+    reverse_proxy immich-server:2283
 }
 
 # Adding a new app to `edge` later = add a block here, nothing else to touch.

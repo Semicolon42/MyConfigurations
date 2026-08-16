@@ -1,10 +1,12 @@
+name: netdata
+
 services:
   netdata:
     image: netdata/netdata:latest
     container_name: netdata
     hostname: netdata
     ports:
-      - "19999:19999"
+      - "20002:19999"
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE
