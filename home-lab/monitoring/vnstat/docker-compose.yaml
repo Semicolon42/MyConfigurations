@@ -1,0 +1,20 @@
+name: vnstat
+
+services:
+  vnstat:
+    image: vergoh/vnstat:latest
+    container_name: vnstat
+    network_mode: host
+    env_file:
+      - vnstat.env
+    volumes:
+      - ___REPLACE_ME_VNSTAT_DATA_PATH___:/var/lib/vnstat
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    restart: unless-stopped
+    # network_mode: host so it can see the host's real interfaces (same
+    # reasoning as glances.yaml) — also means it physically can't join
+    # `edge`. LAN-only, long-term bandwidth accounting, not real-time
+    # metrics (that's Netdata/Glances). After first start, register the
+    # interface to track:
+    #   docker exec vnstat vnstat -i eth0 --add

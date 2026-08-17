@@ -23,7 +23,7 @@ services:
   # CLIP-based smart search / face recognition / object detection.
   # CPU-only by design here — no GPU reservation. Note: this is NOT Ollama;
   # Immich has no native Ollama/LLM provider, this runs its own ONNX CLIP
-  # models. See ai/ollama.yml if that changes later (a captioning sidecar
+  # models. See ai/ollama.yaml if that changes later (a captioning sidecar
   # like immich-analyze could join `internal-llm` the same way paperless-gpt
   # does, calling both this stack's API and Ollama's — deliberately skipped
   # for now).

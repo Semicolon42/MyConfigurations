@@ -5,6 +5,8 @@ services:
     image: docker.io/library/redis:7
     container_name: paperless-broker
     restart: unless-stopped
+    user: "0:0"
+    entrypoint: ["redis-server"]
     volumes:
       - ___REPLACE_ME_PAPERLESS_REDIS_DATA_PATH___:/data
 
@@ -103,7 +105,7 @@ networks:
     external: true
   internal-llm:
     external: true
-    # Shared network for reaching Ollama (ai/ollama.yml) without merging
+    # Shared network for reaching Ollama (ai/ollama.yaml) without merging
     # compose projects — see the comment there for the full explanation.
   # `broker` and `postgres` stay on the compose-local `default` network only
   # — they never need to be reachable from `edge`/Cloudflare or `internal-llm`,

@@ -7,15 +7,11 @@
     auto_https off
 }
 
-http://jf.semicolon42.com {
-    reverse_proxy jellyfin:8096
-}
-
 http://jellyfin.semicolon42.com {
     reverse_proxy jellyfin:8096
 }
 
-http://books.semicolon42.com {
+http://abooks.semicolon42.com {
     reverse_proxy audiobookshelf:80
 }
 
@@ -23,7 +19,7 @@ http://music.semicolon42.com {
     reverse_proxy navidrome:4533
 }
 
-http://manga.semicolon42.com {
+http://ebooks.semicolon42.com {
     reverse_proxy kavita:5000
 }
 
@@ -33,11 +29,6 @@ http://links.semicolon42.com {
 
 http://lw.semicolon42.com {
     reverse_proxy linkwarden:3000
-}
-
-
-http://pdf.semicolon42.com {
-    reverse_proxy stirling-pdf:8080
 }
 
 http://docs.semicolon42.com {

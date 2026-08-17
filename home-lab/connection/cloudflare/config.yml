@@ -1,4 +1,4 @@
-# Reference only — this is the shape of the file that connection/cloudflare.yml
+# Reference only — this is the shape of the file that connection/cloudflare.yaml
 # mounts at ___REPLACE_ME_CLOUDFLARED_CONFIG_PATH___ (not tracked here since
 # it holds your tunnel ID). Every hostname now routes to the same place —
 # Caddy — so this file stops changing when you add apps; you only ever
