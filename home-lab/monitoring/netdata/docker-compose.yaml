@@ -6,7 +6,7 @@ services:
     container_name: netdata
     hostname: netdata
     ports:
-      - "20002:19999"
+      - "10011:19999"
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE
@@ -23,3 +23,8 @@ services:
       - /sys:/host/sys:ro
       - /etc/os-release:/host/etc/os-release:ro
     # LAN-only by design — system metrics should never be internet-reachable.
+    # Netdata >=2.1.1 puts a sign-in/Netdata-Cloud nag on the dashboard root.
+    # No data leaves the box (NETDATA_CLAIM_TOKEN is never set here) — it's
+    # just a UI gate. Bypass it by going straight to http://host:19999/v3
+    # (legacy local dashboard, no account needed). No env var disables the
+    # nag on the root path as of this writing.

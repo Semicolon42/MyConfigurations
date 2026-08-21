@@ -1,1 +1,4 @@
 .DS_Store
+
+# recovered Linkwarden archive data (personal bookmarked content, not config)
+home-lab/organization/linkwarden/data/

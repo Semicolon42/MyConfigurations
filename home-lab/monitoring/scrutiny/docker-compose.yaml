@@ -8,8 +8,8 @@ services:
       - SYS_RAWIO
       - SYS_ADMIN
     ports:
-      - "20003:8080"
-      - "20004:8086"
+      - "10012:8080"
+      - "10013:8086"
     volumes:
       - ___REPLACE_ME_SCRUTINY_CONFIG_PATH___:/opt/scrutiny/config
       - ___REPLACE_ME_SCRUTINY_INFLUXDB_PATH___:/opt/scrutiny/influxdb

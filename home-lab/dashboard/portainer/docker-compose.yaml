@@ -1,0 +1,19 @@
+name: portainer
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    env_file:
+      - portainer.env
+    ports:
+      - "10001:9443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ___REPLACE_ME_PORTAINER_DATA_PATH___:/data
+    restart: unless-stopped
+    # HTTPS-only UI (self-signed cert — expect a browser warning) on 9443.
+    # docker.sock is mounted read-write on purpose: Portainer needs it to
+    # start/stop/deploy containers, unlike the read-only mounts elsewhere
+    # in monitoring/ (dozzle, glances). That's exactly why this stays
+    # LAN-only, full stop — never add it to `edge`/Caddyfile.

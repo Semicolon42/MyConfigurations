@@ -49,7 +49,7 @@ services:
       - gotenberg
       - tika
     ports:
-      - "40002:8000"
+      - "20011:8000"
     env_file:
       - paperless-ngx.env
     volumes:
@@ -70,7 +70,7 @@ services:
     depends_on:
       - paperless-ngx
     ports:
-      - "40003:3000"
+      - "20012:3000"
     env_file:
       - paperless-ngx.env
     volumes:
@@ -89,7 +89,7 @@ services:
     depends_on:
       - paperless-ngx
     ports:
-      - "40004:8080"
+      - "20013:8080"
     env_file:
       - paperless-ngx.env
     volumes:

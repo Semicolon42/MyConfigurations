@@ -44,7 +44,7 @@ services:
       database:
         condition: service_healthy
     ports:
-      - "30006:2283"
+      - "20005:2283"
     env_file:
       - immich.env
     volumes:

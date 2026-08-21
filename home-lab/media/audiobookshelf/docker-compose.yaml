@@ -6,7 +6,7 @@ services:
     # ABS listens on 80 inside the container by default; only the host
     # (left) side is remapped here to fit this repo's port scheme.
     ports:
-      - 30002:80
+      - 20001:80
     volumes:
       # These volumes are needed to keep your library persistent
       # and allow media to be accessed by the ABS server.

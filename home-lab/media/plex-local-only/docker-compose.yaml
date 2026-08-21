@@ -15,3 +15,6 @@ services:
     restart: unless-stopped
     # Intentionally NOT on the `edge` network and no other host is punched
     # through Cloudflare for this one — LAN/PS5 only, per the filename.
+    # Port stays 32400:32400, not the 2000X media pattern — Plex's LAN
+    # auto-discovery (GDM), which the PS5 app depends on, only works on
+    # the standard port.

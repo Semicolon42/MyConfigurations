@@ -7,7 +7,7 @@ services:
     env_file:
       - stash.env
     ports:
-      - "30005:9999"
+      - "20004:9999"
     volumes:
       - ___REPLACE_ME_STASH_CONFIG_PATH___:/root/.stash
       - ___REPLACE_ME_STASH_LIBRARY_PATH___:/data

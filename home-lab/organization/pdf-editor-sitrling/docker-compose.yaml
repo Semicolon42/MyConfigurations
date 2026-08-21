@@ -5,7 +5,7 @@ services:
     image: ghcr.io/stirling-tools/stirling-pdf:latest
     container_name: stirling-pdf
     ports:
-      - "40005:8080"
+      - "20014:8080"
     volumes:
       - ./trainingData:/usr/share/tesseract-ocr-4.00/tessdata
       - ./extraConfigs:/configs

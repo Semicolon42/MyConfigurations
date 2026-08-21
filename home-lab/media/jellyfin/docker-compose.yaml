@@ -7,7 +7,7 @@ services:
     env_file:
       - jellyfin.env
     ports:
-      - "30001:8096"
+      - "20000:8096"
     volumes:
       - ___REPLACE_ME_JELLYFIN_CONFIG_PATH___:/config
       - ___REPLACE_ME_JELLYFIN_CACHE_PATH___:/cache

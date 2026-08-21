@@ -20,7 +20,7 @@ services:
     # build: . # uncomment to build from source
     image: ghcr.io/linkwarden/linkwarden:latest # comment to build from source
     ports:
-      - 40001:3000
+      - 20010:3000
     volumes:
       - ___REPLACE_ME_LINKWARDEN_DATA_PATH___:/data/data
     depends_on:
