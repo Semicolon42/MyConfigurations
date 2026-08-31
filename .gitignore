@@ -57,6 +57,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.claude/
 
 # recovered Linkwarden archive data (personal bookmarked content, not config)
 home-lab/organization/linkwarden/data/

@@ -11,6 +11,10 @@ http://jellyfin.semicolon42.com {
     reverse_proxy jellyfin:8096
 }
 
+http://jf.semicolon42.com {
+    reverse_proxy jellyfin:8096
+}
+
 http://abooks.semicolon42.com {
     reverse_proxy audiobookshelf:80
 }

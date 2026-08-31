@@ -31,7 +31,7 @@ services:
       - "gotenberg"
       - "--chromium-disable-javascript=true"
       - "--chromium-allow-list=file:///tmp/.*"
-
+  
   # tika service that paperless uses for document text extraction
   tika:
     image: docker.io/apache/tika:latest
