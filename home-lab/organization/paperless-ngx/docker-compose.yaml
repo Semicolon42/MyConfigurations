@@ -31,7 +31,7 @@ services:
       - "gotenberg"
       - "--chromium-disable-javascript=true"
       - "--chromium-allow-list=file:///tmp/.*"
-  
+
   # tika service that paperless uses for document text extraction
   tika:
     image: docker.io/apache/tika:latest
@@ -61,12 +61,13 @@ services:
       - default
       - edge
 
-
-  # paperless-ai service
-  paperless-ai:
-    image: clusterzx/paperless-ai:latest
-    container_name: paperless-ai
+  # paperless-ngx-dedupe: finds/removes duplicate documents in paperless-ngx
+  # (MinHash/LSH fuzzy matching, catches near-duplicates exact hashing misses)
+  paperless-ngx-dedupe:
+    image: ghcr.io/rknightion/paperless-ngx-dedupe:latest
+    container_name: paperless-ngx-dedupe
     restart: unless-stopped
+    stop_grace_period: 30s
     depends_on:
       - paperless-ngx
     ports:
@@ -74,39 +75,15 @@ services:
     env_file:
       - paperless-ngx.env
     volumes:
-      - __PAPERLESS_AI__/data:/app/data
+      - ___REPLACE_ME_PAPERLESS_DEDUPE_DATA_PATH___:/app/data
     networks:
       - default
-      - internal-llm
-    # LAN-only for now — add to `edge` + a Caddyfile block if you want this
-    # reachable outside the LAN.
-
-  # paperless-gpt service
-  paperless-gpt:
-    image: icereed/paperless-gpt:latest
-    container_name: paperless-gpt
-    restart: unless-stopped
-    depends_on:
-      - paperless-ngx
-    ports:
-      - "20013:8080"
-    env_file:
-      - paperless-ngx.env
-    volumes:
-      - __PAPERLESS_GPT__/prompts:/app/prompts # Mount the prompts directory
-    networks:
-      - default
-      - internal-llm
     # LAN-only for now — add to `edge` + a Caddyfile block if you want this
     # reachable outside the LAN.
 
 networks:
   edge:
     external: true
-  internal-llm:
-    external: true
-    # Shared network for reaching Ollama (ai/ollama.yaml) without merging
-    # compose projects — see the comment there for the full explanation.
   # `broker` and `postgres` stay on the compose-local `default` network only
   # — they never need to be reachable from `edge`/Cloudflare or `internal-llm`,
   # just from paperless-ngx.
