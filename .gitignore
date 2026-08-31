@@ -1,4 +1,62 @@
+# OS cruft
 .DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# editor/IDE
+.idea/
+.vscode/
+*.code-workspace
+.fleet/
+.zed/
+.sublime-project
+.sublime-workspace
+*.swp
+*.swo
+*~
+.netrwhist
+
+# env / secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.crt
+*.p12
+*_rsa
+*_rsa.pub
+
+# logs / runtime
+*.log
+logs/
+*.pid
+
+# archives / backups
+*.bak
+*.orig
+*.tmp
+
+# docker compose runtime state (not the compose files themselves)
+docker-compose.override.yml
+docker-compose.override.yaml
+compose.override.yml
+compose.override.yaml
+.docker/
+
+# node (some stacks bundle small tooling/scripts)
+node_modules/
+
+# python (scripts/tooling)
+__pycache__/
+*.pyc
+.venv/
+venv/
 
 # recovered Linkwarden archive data (personal bookmarked content, not config)
 home-lab/organization/linkwarden/data/
