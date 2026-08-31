@@ -9,8 +9,8 @@ services:
       - edge
     volumes:
       - ___REPLACE_ME_CADDYFILE_PATH___:/etc/caddy/Caddyfile:ro
-      - ___REPLACE_ME_CADDY_DATA_PATH___:/data
-      - ___REPLACE_ME_CADDY_CONFIG_PATH___:/config
+      - ___REPLACE_ME_CADDY_ROOT_PATH___/data:/data
+      - ___REPLACE_ME_CADDY_ROOT_PATH___/config:/config
     # No `ports:` published to the host on purpose — the only thing that
     # ever needs to reach Caddy is `cloudflared`, over the `edge` network.
     # If you also want LAN clients to hit these hostnames directly without

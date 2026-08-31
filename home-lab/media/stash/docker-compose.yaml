@@ -9,11 +9,11 @@ services:
     ports:
       - "20004:9999"
     volumes:
-      - ___REPLACE_ME_STASH_CONFIG_PATH___:/root/.stash
+      - ___REPLACE_ME_STASH_ROOT_PATH___/config:/root/.stash
       - ___REPLACE_ME_STASH_LIBRARY_PATH___:/data
-      - ___REPLACE_ME_STASH_GENERATED_PATH___:/generated
-      - ___REPLACE_ME_STASH_METADATA_PATH___:/metadata
-      - ___REPLACE_ME_STASH_CACHE_PATH___:/cache
+      - ___REPLACE_ME_STASH_ROOT_PATH___/generated:/generated
+      - ___REPLACE_ME_STASH_ROOT_PATH___/metadata:/metadata
+      - ___REPLACE_ME_STASH_ROOT_PATH___/cache:/cache
     restart: unless-stopped
     # Kept off `edge` on purpose — sensitive library, LAN-only unless you
     # deliberately decide otherwise later.

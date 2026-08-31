@@ -84,4 +84,11 @@ works on the standard port.
 - Every service's `environment:` lives in a sibling `<name>.env` file,
   loaded via `env_file:`. Editing a value (a path, a secret, a hostname)
   only ever touches the `.env` file, never the compose YAML.
+- Volume host paths use one `___REPLACE_ME_<APP>_ROOT_PATH___` placeholder
+  per app, with the literal scaffold-folder name (mirrored from the NAS,
+  tracked here via `.gitkeep`) appended on each volume line — e.g.
+  `___REPLACE_ME_NETDATA_ROOT_PATH___/config:/etc/netdata`. Shared/external
+  paths that don't live under the app's private root (media libraries, log
+  sources to watch, raw disk devices) keep their own distinct
+  `___REPLACE_ME_..._PATH___` placeholder instead.
 

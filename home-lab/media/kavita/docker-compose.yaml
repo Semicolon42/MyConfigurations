@@ -10,7 +10,7 @@ services:
     ports:
       - "20003:5000"
     volumes:
-      - ___REPLACE_ME_KAVITA_CONFIG_PATH___:/kavita/config
+      - ___REPLACE_ME_KAVITA_ROOT_PATH___/config:/kavita/config
       - ___REPLACE_ME_KAVITA_MANGA_PATH___:/manga
       - ___REPLACE_ME_KAVITA_COMICS_PATH___:/comics
       - ___REPLACE_ME_KAVITA_BOOKS_PATH___:/books

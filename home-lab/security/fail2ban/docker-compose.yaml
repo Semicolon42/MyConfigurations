@@ -11,7 +11,7 @@ services:
     env_file:
       - fail2ban.env
     volumes:
-      - ___REPLACE_ME_FAIL2BAN_DATA_PATH___:/data
+      - ___REPLACE_ME_FAIL2BAN_ROOT_PATH___/data:/data
       - ___REPLACE_ME_LOG_SOURCE_PATH___:/var/log/remote:ro # point at whatever logs you want it watching
     restart: unless-stopped
     # Needs host networking + NET_ADMIN to manipulate iptables directly —

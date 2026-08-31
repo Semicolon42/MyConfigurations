@@ -32,7 +32,7 @@ services:
     container_name: immich-machine-learning
     restart: unless-stopped
     volumes:
-      - ___REPLACE_ME_IMMICH_ML_CACHE_PATH___:/cache
+      - ___REPLACE_ME_IMMICH_ROOT_PATH___/cache:/cache
 
   immich-server:
     image: ghcr.io/immich-app/immich-server:release
@@ -48,7 +48,7 @@ services:
     env_file:
       - immich.env
     volumes:
-      - ___REPLACE_ME_IMMICH_UPLOAD_PATH___:/data
+      - ___REPLACE_ME_IMMICH_ROOT_PATH___/upload:/data
       - /etc/localtime:/etc/localtime:ro
     networks:
       - default

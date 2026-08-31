@@ -14,9 +14,9 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
-      - ___REPLACE_ME_NETDATA_CONFIG_PATH___:/etc/netdata
-      - ___REPLACE_ME_NETDATA_LIB_PATH___:/var/lib/netdata
-      - ___REPLACE_ME_NETDATA_CACHE_PATH___:/var/cache/netdata
+      - ___REPLACE_ME_NETDATA_ROOT_PATH___/config:/etc/netdata
+      - ___REPLACE_ME_NETDATA_ROOT_PATH___/lib:/var/lib/netdata
+      - ___REPLACE_ME_NETDATA_ROOT_PATH___/cache:/var/cache/netdata
       - /etc/passwd:/host/etc/passwd:ro
       - /etc/group:/host/etc/group:ro
       - /proc:/host/proc:ro

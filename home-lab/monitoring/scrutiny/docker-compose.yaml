@@ -11,8 +11,8 @@ services:
       - "10012:8080"
       - "10013:8086"
     volumes:
-      - ___REPLACE_ME_SCRUTINY_CONFIG_PATH___:/opt/scrutiny/config
-      - ___REPLACE_ME_SCRUTINY_INFLUXDB_PATH___:/opt/scrutiny/influxdb
+      - ___REPLACE_ME_SCRUTINY_ROOT_PATH___/config:/opt/scrutiny/config
+      - ___REPLACE_ME_SCRUTINY_ROOT_PATH___/influxdb:/opt/scrutiny/influxdb
       - /run/udev:/run/udev:ro
     devices:
       - "___REPLACE_ME_DISK_DEVICE_1___:___REPLACE_ME_DISK_DEVICE_1___"

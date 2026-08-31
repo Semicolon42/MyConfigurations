@@ -8,7 +8,7 @@ services:
     env_file:
       - vnstat.env
     volumes:
-      - ___REPLACE_ME_VNSTAT_DATA_PATH___:/var/lib/vnstat
+      - ___REPLACE_ME_VNSTAT_ROOT_PATH___/data:/var/lib/vnstat
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     restart: unless-stopped

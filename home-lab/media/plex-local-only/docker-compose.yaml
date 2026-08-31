@@ -9,7 +9,7 @@ services:
     ports:
       - "32400:32400"
     volumes:
-      - ___REPLACE_ME_PLEX_CONFIG_PATH___:/config
+      - ___REPLACE_ME_PLEX_ROOT_PATH___/config:/config
       - ___REPLACE_ME_MOVIES_LIBRARY_PATH___:/media/movies:ro
       - ___REPLACE_ME_TV_LIBRARY_PATH___:/media/tv:ro
     restart: unless-stopped

@@ -10,7 +10,7 @@ services:
       - "10001:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ___REPLACE_ME_PORTAINER_DATA_PATH___:/data
+      - ___REPLACE_ME_PORTAINER_ROOT_PATH___/data:/data
     restart: unless-stopped
     # HTTPS-only UI (self-signed cert — expect a browser warning) on 9443.
     # docker.sock is mounted read-write on purpose: Portainer needs it to

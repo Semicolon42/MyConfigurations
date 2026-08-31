@@ -11,7 +11,7 @@ services:
       # Optional: put your config options customization here. Examples:
       # ND_LOGLEVEL: debug
     volumes:
-      - "___REPLACE_ME_NAVIDROME_DATA_PATH___:/data"
+      - "___REPLACE_ME_NAVIDROME_ROOT_PATH___/data:/data"
       - "___REPLACE_ME_NAVIDROME_MUSIC_PATH___:/music:ro"
     networks:
       - edge

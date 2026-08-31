@@ -10,8 +10,8 @@ services:
     volumes:
       # These volumes are needed to keep your library persistent
       # and allow media to be accessed by the ABS server.
-      - ___REPLACE_ME_AUDIOBOOKSHELF_CONFIG_PATH___:/config
-      - ___REPLACE_ME_AUDIOBOOKSHELF_METADATA_PATH___:/metadata
+      - ___REPLACE_ME_AUDIOBOOKSHELF_ROOT_PATH___/config:/config
+      - ___REPLACE_ME_AUDIOBOOKSHELF_ROOT_PATH___/metadata:/metadata
       # The path to the left of the colon is the path on your computer,
       # and the path to the right of the colon is where the data is
       # available to ABS in Docker. You can change these lines freely

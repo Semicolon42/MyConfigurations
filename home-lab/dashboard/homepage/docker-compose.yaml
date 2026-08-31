@@ -9,7 +9,7 @@ services:
     ports:
       - "10000:3000"
     volumes:
-      - ___REPLACE_ME_HOMEPAGE_CONFIG_PATH___:/app/config
+      - ___REPLACE_ME_HOMEPAGE_ROOT_PATH___/config:/app/config
       - ./services.yaml:/app/config/services.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
@@ -19,7 +19,7 @@ services:
     # later, add it deliberately rather than by default.
     #
     # services.yaml is tracked in this repo and bind-mounted on top of the
-    # REPLACE_ME config dir, so the app links live in git; everything else
+    # ROOT_PATH/config dir, so the app links live in git; everything else
     # Homepage writes at runtime (settings.yaml, bookmarks.yaml, etc.) stays
     # on the host only. Fill in ___REPLACE_ME_LAN_HOST___ in services.yaml
     # with your actual LAN hostname/IP.

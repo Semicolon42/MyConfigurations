@@ -7,12 +7,12 @@ services:
       - link-warden.env
     restart: always
     volumes:
-      - ___REPLACE_ME_LINKWARDEN_PGDATA_PATH___:/var/lib/postgresql/data
+      - ___REPLACE_ME_LINKWARDEN_ROOT_PATH___/pgdata:/var/lib/postgresql/data
   meilisearch:
     image: getmeili/meilisearch:v1.12.8
     restart: always
     volumes:
-      - ___REPLACE_ME_LINKWARDEN_MEILI_DATA_PATH___:/meili_data
+      - ___REPLACE_ME_LINKWARDEN_ROOT_PATH___/meili_data:/meili_data
   linkwarden:
     env_file:
       - link-warden.env
@@ -22,7 +22,7 @@ services:
     ports:
       - 20010:3000
     volumes:
-      - ___REPLACE_ME_LINKWARDEN_DATA_PATH___:/data/data
+      - ___REPLACE_ME_LINKWARDEN_ROOT_PATH___/data:/data/data
     depends_on:
       - postgres
       - meilisearch

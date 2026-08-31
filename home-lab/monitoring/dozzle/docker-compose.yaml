@@ -10,6 +10,6 @@ services:
       - dozzle.env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - __DOZZLE_DATA__:/data
+      - ___REPLACE_ME_DOZZLE_ROOT_PATH___/data:/data
     ports:
       - "10010:8888"
