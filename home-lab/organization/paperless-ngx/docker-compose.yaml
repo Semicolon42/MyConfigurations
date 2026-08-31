@@ -78,8 +78,9 @@ services:
       - ___REPLACE_ME_PAPERLESS_DEDUPE_DATA_PATH___:/app/data
     networks:
       - default
-    # LAN-only for now — add to `edge` + a Caddyfile block if you want this
-    # reachable outside the LAN.
+      - edge
+    # Reachable externally at docs-dd.semicolon42.com — see
+    # connection/caddy/Caddyfile.
 
 networks:
   edge:

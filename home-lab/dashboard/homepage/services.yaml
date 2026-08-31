@@ -14,14 +14,10 @@
         href: http://___REPLACE_ME_LAN_HOST___:20011
         description: Document scanning, OCR, search
         icon: paperless-ngx.png
-    - Paperless-AI:
+    - Paperless-ngx Dedupe:
         href: http://___REPLACE_ME_LAN_HOST___:20012
-        description: AI-assisted tagging for paperless-ngx
-        icon: paperless-ai.png
-    - Paperless-GPT:
-        href: http://___REPLACE_ME_LAN_HOST___:20013
-        description: AI-assisted OCR summaries/tagging for paperless-ngx
-        icon: paperless-gpt.png
+        description: Find/remove duplicate documents in paperless-ngx
+        icon: mdi-content-duplicate
     - Stirling PDF:
         href: http://___REPLACE_ME_LAN_HOST___:20014
         description: Suite of PDF editing tools

@@ -35,6 +35,10 @@ http://docs.semicolon42.com {
     reverse_proxy paperless-ngx:8000
 }
 
+http://docs-dd.semicolon42.com {
+    reverse_proxy paperless-ngx-dedupe:3000
+}
+
 http://pics.semicolon42.com {
     reverse_proxy immich-server:2283
 }
